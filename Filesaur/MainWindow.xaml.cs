@@ -27,16 +27,20 @@ namespace Filesaur
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-            if (comboBox1.SelectedItem.ToString() == "Move")
+            if (comboBox1.SelectedIndex == 0)
             {
-                // hide all thingies
-                // show thingies for move script
+                // Makes all necessary fields visible
+                fromDir.Visibility = System.Windows.Visibility.Visible;
+                toDir.Visibility = System.Windows.Visibility.Visible;
+                filetype.Visibility = System.Windows.Visibility.Visible;
             }
-            else if (comboBox1.SelectedItem.ToString() == "Delete")
+            else if (comboBox1.SelectedIndex == 1)
             {
-                // hide all thingies
-                // show thingies for delete script
+                // Hides unnecessary field
+                toDir.Visibility = Visibility.Hidden;
+                // show all the things
+                fromDir.Visibility = Visibility.Visible;
+                filetype.Visibility = Visibility.Visible;
             }
 
 

@@ -10,14 +10,14 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="267,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="266,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
             <ComboBoxItem Content="Move"/>
             <ComboBoxItem Cursor="" Content="Delete"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="215,45,0,0" TextWrapping="Wrap" Text="Select the operation you'd like to execute" VerticalAlignment="Top"/>
-        <TextBox x:Name="fromDir" HorizontalAlignment="Left" Height="23" Margin="65,167,0,0" TextWrapping="NoWrap" Text="fromDir" VerticalAlignment="Top" Width="508"/>
-        <TextBox x:Name="toDir" HorizontalAlignment="Left" Height="23" Margin="65,195,0,0" TextWrapping="NoWrap" Text="toDir" VerticalAlignment="Top" Width="508"/>
-        <TextBox x:Name="filetype" HorizontalAlignment="Left" Height="23" Margin="267,223,0,0" TextWrapping="NoWrap" Text="filetype" VerticalAlignment="Top" Width="134"/>
+        <TextBlock HorizontalAlignment="Left" Margin="217,45,0,0" TextWrapping="Wrap" Text="Select the operation you'd like to execute" VerticalAlignment="Top"/>
+        <TextBox x:Name="fromDir" HorizontalAlignment="Left" Height="23" Margin="72,167,0,0" TextWrapping="NoWrap" Text="fromDir" VerticalAlignment="Top" Width="508"/>
+        <TextBox x:Name="toDir" HorizontalAlignment="Left" Height="23" Margin="72,195,0,0" TextWrapping="NoWrap" Text="toDir" VerticalAlignment="Top" Width="508"/>
+        <TextBox x:Name="filetype" HorizontalAlignment="Left" Height="23" Margin="260,223,0,0" TextWrapping="NoWrap" Text="filetype" VerticalAlignment="Top" Width="134"/>
         <Button Content="Execute" HorizontalAlignment="Left" Margin="289,288,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
