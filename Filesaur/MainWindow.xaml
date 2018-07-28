@@ -10,6 +10,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="267,83,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="Move"/>
+            <ComboBoxItem Cursor="" Content="Delete"/>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" Margin="229,44,0,0" TextWrapping="Wrap" Text="Please select your preferred operation" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

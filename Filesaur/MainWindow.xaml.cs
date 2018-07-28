@@ -24,5 +24,22 @@ namespace Filesaur
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (comboBox1.SelectedItem.ToString() == "Move")
+            {
+                // hide all thingies
+                // show thingies for move script
+            }
+            else if (comboBox1.SelectedItem.ToString() == "Delete")
+            {
+                // hide all thingies
+                // show thingies for delete script
+            }
+
+
+        }
     }
 }
