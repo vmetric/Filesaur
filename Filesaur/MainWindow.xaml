@@ -14,7 +14,11 @@
             <ComboBoxItem Content="Move"/>
             <ComboBoxItem Cursor="" Content="Delete"/>
         </ComboBox>
-        <TextBlock HorizontalAlignment="Left" Margin="229,44,0,0" TextWrapping="Wrap" Text="Please select your preferred operation" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="215,45,0,0" TextWrapping="Wrap" Text="Select the operation you'd like to execute" VerticalAlignment="Top"/>
+        <TextBox x:Name="fromDir" HorizontalAlignment="Left" Height="23" Margin="65,167,0,0" TextWrapping="NoWrap" Text="fromDir" VerticalAlignment="Top" Width="508"/>
+        <TextBox x:Name="toDir" HorizontalAlignment="Left" Height="23" Margin="65,195,0,0" TextWrapping="NoWrap" Text="toDir" VerticalAlignment="Top" Width="508"/>
+        <TextBox x:Name="filetype" HorizontalAlignment="Left" Height="23" Margin="267,223,0,0" TextWrapping="NoWrap" Text="filetype" VerticalAlignment="Top" Width="134"/>
+        <Button Content="Execute" HorizontalAlignment="Left" Margin="289,288,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>
