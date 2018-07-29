@@ -20,30 +20,48 @@ namespace Filesaur
     /// </summary>
     public partial class MainWindow : Window
     {
+        int Move = 0;
+        int Delete = 1;
         public MainWindow()
         {
             InitializeComponent();
         }
+        
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0)
+            if (comboBox1.SelectedIndex == Move)
             {
                 // Makes all necessary fields visible
-                fromDir.Visibility = System.Windows.Visibility.Visible;
-                toDir.Visibility = System.Windows.Visibility.Visible;
-                filetype.Visibility = System.Windows.Visibility.Visible;
+                textbox_FromDir.Visibility = System.Windows.Visibility.Visible;
+                textbox_ToDir.Visibility = System.Windows.Visibility.Visible;
+                textbox_Filetype.Visibility = System.Windows.Visibility.Visible;
             }
-            else if (comboBox1.SelectedIndex == 1)
+            else if (comboBox1.SelectedIndex == Delete)
             {
                 // Hides unnecessary field
-                toDir.Visibility = Visibility.Hidden;
-                // show all the things
-                fromDir.Visibility = Visibility.Visible;
-                filetype.Visibility = Visibility.Visible;
+                textbox_ToDir.Visibility = Visibility.Hidden;
+                // Makes all necessary fields visible
+                textbox_FromDir.Visibility = Visibility.Visible;
+                textbox_Filetype.Visibility = Visibility.Visible;
             }
 
 
+        }
+
+        private void buttonExecute_Click(object sender, RoutedEventArgs e)
+        {
+            if (comboBox1.SelectedIndex == Move)
+            {
+                string fromDir = textbox_FromDir.Text.ToString();
+                string toDir = textbox_ToDir.Text.ToString();
+                string filetype = textbox_Filetype.Text.ToString();
+            }
+            else if (comboBox1.SelectedIndex == Delete)
+            {
+                string fromDir = textbox_FromDir.Text.ToString();
+                string filetype = textbox_Filetype.Text.ToString();
+            }
         }
     }
 }
