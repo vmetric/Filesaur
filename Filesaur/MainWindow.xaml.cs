@@ -36,10 +36,15 @@ namespace Filesaur
             int exitCode;
             ProcessStartInfo processInfo;
             Process process;
+            string executionDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
             if (operationToExecute == Move)
             {
-                processInfo = new ProcessStartInfo("cmd.exe", "/c " + "D:\\Users\\Matt\\Documents\\GitHub\\Filesaur\\Scripts\\test.bat");
+                processInfo = new ProcessStartInfo("cmd.exe", "/c " + executionDirectory + "\\Scripts\\move.bat");
+            }
+            else if (operationToExecute == Delete)
+            {
+                processInfo = new ProcessStartInfo("cmd.exe", "/c " + executionDirectory + "\\Scripts\\delete.bat");
             }
             else
             {
