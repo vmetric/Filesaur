@@ -24,6 +24,7 @@ namespace Filesaur
 
         int Move = 0;
         int Delete = 1;
+        int MoveNotExecuted = 2;
 
         public MainWindow()
         {
@@ -32,6 +33,39 @@ namespace Filesaur
         
         public void StartCMD(int operationToExecute)
         {
+            int exitCode;
+            ProcessStartInfo processInfo;
+            Process process;
+
+            if (operationToExecute == Move)
+            {
+                processInfo = new ProcessStartInfo("cmd.exe", "/c " + "D:\\Users\\Matt\\Documents\\GitHub\\Filesaur\\Scripts\\test.bat");
+            }
+            else
+            {
+                exitCode = MoveNotExecuted;
+                return;
+            }
+
+            processInfo.CreateNoWindow = true;
+            processInfo.UseShellExecute = false;
+            // Redirect the output
+            processInfo.RedirectStandardError = true;
+            processInfo.RedirectStandardOutput = true;
+
+            process = Process.Start(processInfo);
+            process.WaitForExit();
+
+            // Read the streams
+            string output = process.StandardOutput.ReadToEnd();
+            string error = process.StandardError.ReadToEnd();
+
+            exitCode = process.ExitCode;
+
+            MessageBox.Show("output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output));
+            Console.WriteLine("error>>" + (String.IsNullOrEmpty(error) ? "(none)" : error));
+            Console.WriteLine("ExitCode: " + exitCode.ToString(), "ExecuteCommand");
+            process.Close();
 
         }
 
@@ -64,6 +98,8 @@ namespace Filesaur
                 string fromDir = textbox_FromDir.Text.ToString();
                 string toDir = textbox_ToDir.Text.ToString();
                 string filetype = textbox_Filetype.Text.ToString();
+
+                StartCMD(Move);
             }
             else if (comboBox1.SelectedIndex == Delete)
             {
