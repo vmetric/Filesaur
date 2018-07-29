@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -41,6 +42,8 @@ namespace Filesaur
             if (operationToExecute == Move)
             {
                 processInfo = new ProcessStartInfo("cmd.exe", "/c " + executionDirectory + "\\Scripts\\move.bat");
+                processInfo.Arguments = String.Format("{0} {1} {2}", textbox_FromDir.Text, textbox_ToDir.Text, textbox_Filetype.Text);
+
             }
             else if (operationToExecute == Delete)
             {
@@ -52,7 +55,7 @@ namespace Filesaur
                 return;
             }
 
-            processInfo.CreateNoWindow = true;
+            processInfo.CreateNoWindow = false;
             processInfo.UseShellExecute = false;
             // Redirect the output
             processInfo.RedirectStandardError = true;
