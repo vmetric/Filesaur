@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,13 +21,19 @@ namespace Filesaur
     /// </summary>
     public partial class MainWindow : Window
     {
+
         int Move = 0;
         int Delete = 1;
+
         public MainWindow()
         {
             InitializeComponent();
         }
         
+        public void StartCMD(int operationToExecute)
+        {
+
+        }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -53,12 +60,14 @@ namespace Filesaur
         {
             if (comboBox1.SelectedIndex == Move)
             {
+                // Declares strings, one for each textbox input to be used.
                 string fromDir = textbox_FromDir.Text.ToString();
                 string toDir = textbox_ToDir.Text.ToString();
                 string filetype = textbox_Filetype.Text.ToString();
             }
             else if (comboBox1.SelectedIndex == Delete)
             {
+                // Declares strings, one for each textbox input to be used.
                 string fromDir = textbox_FromDir.Text.ToString();
                 string filetype = textbox_Filetype.Text.ToString();
             }
