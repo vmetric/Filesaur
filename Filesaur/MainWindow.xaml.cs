@@ -35,20 +35,18 @@ namespace Filesaur
         public void StartCMD(int operationToExecute)
         {
             int exitCode;
-            ProcessStartInfo processInfo;
-            Process process;
+            Process process = new Process();
             string executionDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string testScriptDir = executionDirectory + "Scripts\\test.bat";
+            string ScriptsDir = executionDirectory + "Scripts";
 
             if (operationToExecute == Move)
             {
-                processInfo = new ProcessStartInfo("cmd.exe", "/c " + testScriptDir);
-                processInfo.Arguments = String.Format("{0} {1} {2}", textbox_FromDir.Text, textbox_ToDir.Text, textbox_Filetype.Text);
-
+                process.StartInfo.WorkingDirectory = ScriptsDir;
+                process.StartInfo.FileName = "test.bat";
             }
             else if (operationToExecute == Delete)
             {
-                processInfo = new ProcessStartInfo("cmd.exe", "/c " + executionDirectory + "\\Scripts\\delete.bat");
+
             }
             else
             {
@@ -56,26 +54,10 @@ namespace Filesaur
                 return;
             }
 
-            processInfo.CreateNoWindow = false;
-            processInfo.UseShellExecute = false;
-            // Redirect the output
-            processInfo.RedirectStandardError = true;
-            processInfo.RedirectStandardOutput = true;
-
-            process = Process.Start(processInfo);
+            process.Start();
             process.WaitForExit();
-
-            // Read the streams
-            string output = process.StandardOutput.ReadToEnd();
-            string error = process.StandardError.ReadToEnd();
-
             exitCode = process.ExitCode;
-
-            MessageBox.Show("output>>" + (String.IsNullOrEmpty(output) ? "(none)" : output));
-            Console.WriteLine("error>>" + (String.IsNullOrEmpty(error) ? "(none)" : error));
-            Console.WriteLine("ExitCode: " + exitCode.ToString(), "ExecuteCommand");
             process.Close();
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
