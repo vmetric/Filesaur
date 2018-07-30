@@ -38,20 +38,22 @@ namespace Filesaur
             Process process = new Process();
             string executionDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string ScriptsDir = executionDirectory + "Scripts";
+            process.StartInfo.WorkingDirectory = ScriptsDir;
 
             if (operationToExecute == Move)
             {
-                process.StartInfo.WorkingDirectory = ScriptsDir;
                 process.StartInfo.FileName = "move.bat";
                 process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox_FromDir.Text, textbox_ToDir.Text, textbox_Filetype.Text);
             }
             else if (operationToExecute == Delete)
             {
-
+                process.StartInfo.FileName = "delete.bat";
+                process.StartInfo.Arguments = String.Format("{0} {1}", textbox_FromDir.Text, textbox_Filetype.Text);
             }
             else
             {
                 exitCode = MoveNotExecuted;
+                MessageBox.Show(exitCode.ToString());
                 return;
             }
 
@@ -86,18 +88,11 @@ namespace Filesaur
         {
             if (comboBox1.SelectedIndex == Move)
             {
-                // Declares strings, one for each textbox input to be used.
-                string fromDir = textbox_FromDir.Text.ToString();
-                string toDir = textbox_ToDir.Text.ToString();
-                string filetype = textbox_Filetype.Text.ToString();
-
                 StartCMD(Move);
             }
             else if (comboBox1.SelectedIndex == Delete)
             {
-                // Declares strings, one for each textbox input to be used.
-                string fromDir = textbox_FromDir.Text.ToString();
-                string filetype = textbox_Filetype.Text.ToString();
+                StartCMD(Delete);
             }
         }
     }
