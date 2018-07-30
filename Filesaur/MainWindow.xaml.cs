@@ -38,10 +38,11 @@ namespace Filesaur
             ProcessStartInfo processInfo;
             Process process;
             string executionDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string testScriptDir = executionDirectory + "Scripts\\test.bat";
 
             if (operationToExecute == Move)
             {
-                processInfo = new ProcessStartInfo("cmd.exe", "/c " + executionDirectory + "\\Scripts\\move.bat");
+                processInfo = new ProcessStartInfo("cmd.exe", "/c " + testScriptDir);
                 processInfo.Arguments = String.Format("{0} {1} {2}", textbox_FromDir.Text, textbox_ToDir.Text, textbox_Filetype.Text);
 
             }
