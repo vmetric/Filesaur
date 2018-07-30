@@ -42,7 +42,8 @@ namespace Filesaur
             if (operationToExecute == Move)
             {
                 process.StartInfo.WorkingDirectory = ScriptsDir;
-                process.StartInfo.FileName = "test.bat";
+                process.StartInfo.FileName = "move.bat";
+                process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox_FromDir.Text, textbox_ToDir.Text, textbox_Filetype.Text);
             }
             else if (operationToExecute == Delete)
             {
