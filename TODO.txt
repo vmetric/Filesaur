@@ -1,6 +1,0 @@
-0) Implement threading to prevent UI lockup during script execution.
-1) Add "dummy files" script.
-2) Add some sort of progress indicator to the UI.
-3) Complete and add "sorting" script.
-4) Polish the UI to make it friendlier.
-5) Make all control visibility changes into functions. E.g., changeVisibility(textbox_ToDir, Hide)
