@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Diagnostics;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Filesaur
 {
@@ -22,10 +12,12 @@ namespace Filesaur
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        // Operations index (is that even the proper name?)
         int Move = 0;
         int Delete = 1;
-        int MoveNotExecuted = 2;
+
+        // Error codes index (is that even the proper name?)
+        int NoOperationsExecuted = 101;
 
         public MainWindow()
         {
@@ -52,11 +44,10 @@ namespace Filesaur
             }
             else
             {
-                exitCode = MoveNotExecuted;
+                exitCode = NoOperationsExecuted;
                 MessageBox.Show(exitCode.ToString());
                 return;
             }
-
             process.Start();
             process.WaitForExit();
             exitCode = process.ExitCode;
@@ -80,8 +71,6 @@ namespace Filesaur
                 textbox_FromDir.Visibility = Visibility.Visible;
                 textbox_Filetype.Visibility = Visibility.Visible;
             }
-
-
         }
 
         private void buttonExecute_Click(object sender, RoutedEventArgs e)
