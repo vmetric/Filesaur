@@ -48,7 +48,7 @@ namespace Filesaur
 
                 //INCOMPLETE
                 process.StartInfo.FileName = "dummyfiles.bat";
-                process.StartInfo.Arguments = String.Format("{0} {1}", textbox_FromDir.Text, textbox_Filetype.Text);
+                process.StartInfo.Arguments = String.Format("{0} {1} {2}", );
             }
             else
             {
