@@ -15,6 +15,7 @@ namespace Filesaur
         // Operations index (is that even the proper name?)
         int Move = 0;
         int Delete = 1;
+        int CreateDummyFiles = 2;
 
         // Error codes index (is that even the proper name?)
         int NoOperationsExecuted = 101;
@@ -40,6 +41,13 @@ namespace Filesaur
             else if (operationToExecute == Delete)
             {
                 process.StartInfo.FileName = "delete.bat";
+                process.StartInfo.Arguments = String.Format("{0} {1}", textbox_FromDir.Text, textbox_Filetype.Text);
+            }
+            else if (operationToExecute == CreateDummyFiles)
+            {
+
+                //INCOMPLETE
+                process.StartInfo.FileName = "dummyfiles.bat";
                 process.StartInfo.Arguments = String.Format("{0} {1}", textbox_FromDir.Text, textbox_Filetype.Text);
             }
             else
@@ -70,6 +78,10 @@ namespace Filesaur
                 // Makes all necessary fields visible
                 textbox_FromDir.Visibility = Visibility.Visible;
                 textbox_Filetype.Visibility = Visibility.Visible;
+            }
+            else if (comboBox1.SelectedIndex == CreateDummyFiles)
+            {
+                
             }
         }
 
