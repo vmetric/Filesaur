@@ -24,7 +24,7 @@ namespace Filesaur
         {
             InitializeComponent();
         }
-        
+
         public void StartCMD(int operationToExecute)
         {
             int exitCode;
@@ -36,19 +36,17 @@ namespace Filesaur
             if (operationToExecute == Move)
             {
                 process.StartInfo.FileName = "move.bat";
-                process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox_FromDir.Text, textbox_ToDir.Text, textbox_Filetype.Text);
+                process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox1.Text, textbox2.Text, textbox3.Text);
             }
             else if (operationToExecute == Delete)
             {
                 process.StartInfo.FileName = "delete.bat";
-                process.StartInfo.Arguments = String.Format("{0} {1}", textbox_FromDir.Text, textbox_Filetype.Text);
+                process.StartInfo.Arguments = String.Format("{0} {1}", textbox1.Text, textbox3.Text);
             }
             else if (operationToExecute == CreateDummyFiles)
             {
-
-                //INCOMPLETE
                 process.StartInfo.FileName = "dummyfiles.bat";
-                process.StartInfo.Arguments = String.Format("{0} {1} {2}", );
+                process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox3.Text, textbox2.Text, textbox1.Text);
             }
             else
             {
@@ -66,22 +64,40 @@ namespace Filesaur
         {
             if (comboBox1.SelectedIndex == Move)
             {
+                // Changes the content of the respective textboxes to explain what to put in them
+                textbox1.Text = "Directory to move files from";
+                textbox2.Text = "Directory to move files to";
+                textbox3.Text = "Filetype of files to move";
+
                 // Makes all necessary fields visible
-                textbox_FromDir.Visibility = System.Windows.Visibility.Visible;
-                textbox_ToDir.Visibility = System.Windows.Visibility.Visible;
-                textbox_Filetype.Visibility = System.Windows.Visibility.Visible;
+                textbox1.Visibility = System.Windows.Visibility.Visible;
+                textbox2.Visibility = System.Windows.Visibility.Visible;
+                textbox3.Visibility = System.Windows.Visibility.Visible;
             }
             else if (comboBox1.SelectedIndex == Delete)
             {
+                // Changes the content of the respective textboxes to explain what to put in them
+                textbox1.Text = "Directory to delete files from";
+                textbox3.Text = "Filetype of files to delete";
+
                 // Hides unnecessary field
-                textbox_ToDir.Visibility = Visibility.Hidden;
+                textbox2.Visibility = Visibility.Hidden;
+
                 // Makes all necessary fields visible
-                textbox_FromDir.Visibility = Visibility.Visible;
-                textbox_Filetype.Visibility = Visibility.Visible;
+                textbox1.Visibility = Visibility.Visible;
+                textbox3.Visibility = Visibility.Visible;
             }
             else if (comboBox1.SelectedIndex == CreateDummyFiles)
             {
-                
+                // Changes the content of the respective textboxes to explain what to put in them
+                textbox1.Text = "Location to create files";
+                textbox2.Text = "Size to make files (in MB)";
+                textbox3.Text = "Number of files to make";
+
+                // Makes all necessary fields visible
+                textbox1.Visibility = System.Windows.Visibility.Visible;
+                textbox2.Visibility = System.Windows.Visibility.Visible;
+                textbox3.Visibility = System.Windows.Visibility.Visible;
             }
         }
 
@@ -94,6 +110,10 @@ namespace Filesaur
             else if (comboBox1.SelectedIndex == Delete)
             {
                 StartCMD(Delete);
+            }
+            else if (comboBox1.SelectedIndex == CreateDummyFiles)
+            {
+                StartCMD(CreateDummyFiles);
             }
         }
     }
