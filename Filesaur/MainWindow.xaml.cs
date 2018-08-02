@@ -18,7 +18,7 @@ namespace Filesaur
         int CreateDummyFiles = 2;
 
         // Error codes index (is that even the proper name?)
-        int NoOperationsExecuted = 101;
+        int NoOperationsSelected = 101;
 
         public MainWindow()
         {
@@ -50,8 +50,8 @@ namespace Filesaur
             }
             else
             {
-                exitCode = NoOperationsExecuted;
-                MessageBox.Show(exitCode.ToString());
+                exitCode = NoOperationsSelected;
+                MessageBox.Show("Error " + exitCode.ToString() + "No operations selected.");
                 return;
             }
             process.Start();
