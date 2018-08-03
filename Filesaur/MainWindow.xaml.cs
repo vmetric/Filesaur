@@ -46,7 +46,7 @@ namespace Filesaur
             else if (operationToExecute == CreateDummyFiles)
             {
                 process.StartInfo.FileName = "dummyfiles.bat";
-                process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox3.Text, textbox2.Text, textbox1.Text);
+                process.StartInfo.Arguments = String.Format("{0} {1} {2} {3}", textbox3.Text, textbox2.Text, textbox1.Text, textbox4.Text);
             }
             else
             {
@@ -69,10 +69,13 @@ namespace Filesaur
                 textbox2.Text = "Directory to move files to";
                 textbox3.Text = "Filetype of files to move";
 
+                // Hides unnecessary fields
+                textbox4.Visibility = Visibility.Hidden;
+
                 // Makes all necessary fields visible
-                textbox1.Visibility = System.Windows.Visibility.Visible;
-                textbox2.Visibility = System.Windows.Visibility.Visible;
-                textbox3.Visibility = System.Windows.Visibility.Visible;
+                textbox1.Visibility = Visibility.Visible;
+                textbox2.Visibility = Visibility.Visible;
+                textbox3.Visibility = Visibility.Visible;
             }
             else if (comboBox1.SelectedIndex == Delete)
             {
@@ -80,8 +83,9 @@ namespace Filesaur
                 textbox1.Text = "Directory to delete files from";
                 textbox3.Text = "Filetype of files to delete";
 
-                // Hides unnecessary field
+                // Hides unnecessary fields
                 textbox2.Visibility = Visibility.Hidden;
+                textbox4.Visibility = Visibility.Hidden;
 
                 // Makes all necessary fields visible
                 textbox1.Visibility = Visibility.Visible;
@@ -93,11 +97,13 @@ namespace Filesaur
                 textbox1.Text = "Location to create files";
                 textbox2.Text = "Size to make files (in MB)";
                 textbox3.Text = "Number of files to make";
+                textbox4.Text = "Filetype to create (including dot, e.g., .png)";
 
                 // Makes all necessary fields visible
-                textbox1.Visibility = System.Windows.Visibility.Visible;
-                textbox2.Visibility = System.Windows.Visibility.Visible;
-                textbox3.Visibility = System.Windows.Visibility.Visible;
+                textbox1.Visibility = Visibility.Visible;
+                textbox2.Visibility = Visibility.Visible;
+                textbox3.Visibility = Visibility.Visible;
+                textbox4.Visibility = Visibility.Visible;
             }
         }
 
