@@ -14,6 +14,7 @@
             <ComboBoxItem Content="Move"/>
             <ComboBoxItem Cursor="" Content="Delete"/>
             <ComboBoxItem Content="Create Dummy Files"/>
+            <ComboBoxItem Content="Sort"/>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="218,45,0,0" TextWrapping="Wrap" Text="Select the operation you'd like to execute" VerticalAlignment="Top"/>
         <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="23" Margin="152,167,0,0" TextWrapping="NoWrap" Text="1" VerticalAlignment="Top" Width="350"/>

@@ -16,6 +16,7 @@ namespace Filesaur
         int Move = 0;
         int Delete = 1;
         int CreateDummyFiles = 2;
+        int Sort = 3;
 
         // Error codes index (is that even the proper name?)
         int NoOperationsSelected = 101;
@@ -47,6 +48,12 @@ namespace Filesaur
             {
                 process.StartInfo.FileName = "dummyfiles.bat";
                 process.StartInfo.Arguments = String.Format("{0} {1} {2} {3}", textbox3.Text, textbox2.Text, textbox1.Text, textbox4.Text);
+            }
+            else if (operationToExecute == Sort)
+            {
+                process.StartInfo.FileName = "sort.bat";
+                process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox1.Text, textbox2.Text, textbox3.Text);
+                
             }
             else
             {
@@ -105,6 +112,21 @@ namespace Filesaur
                 textbox3.Visibility = Visibility.Visible;
                 textbox4.Visibility = Visibility.Visible;
             }
+            else if (comboBox1.SelectedIndex == Sort)
+            {
+                // Changes the content of the respective textboxes to explain what to put in them
+                textbox1.Text = "Directory containing unsorted files";
+                textbox2.Text = "Directory to sort files to (ensure it is NOT in the above directory)";
+                textbox3.Text = "Intensity (1 for file type, 2 for file extension)";
+
+                // Hides unnecessary fields
+                textbox4.Visibility = Visibility.Hidden;
+
+                // Makes all necessary fields visible
+                textbox1.Visibility = Visibility.Visible;
+                textbox2.Visibility = Visibility.Visible;
+                textbox3.Visibility = Visibility.Visible;
+            }
         }
 
         private void buttonExecute_Click(object sender, RoutedEventArgs e)
@@ -120,6 +142,10 @@ namespace Filesaur
             else if (comboBox1.SelectedIndex == CreateDummyFiles)
             {
                 StartCMD(CreateDummyFiles);
+            }
+            else if (comboBox1.SelectedIndex == Sort)
+            {
+                StartCMD(Sort);
             }
         }
     }
