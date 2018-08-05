@@ -6,34 +6,29 @@ using System.Windows.Controls;
 
 namespace Filesaur
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        // Operations index (is that even the proper name?)
-        int Move = 0;
-        int Delete = 1;
-        int CreateDummyFiles = 2;
-        int Sort = 3;
-
-        // Error codes index (is that even the proper name?)
-        int NoOperationsSelected = 101;
+        // Operations index
+        const int Move = 0;
+        const int Delete = 1;
+        const int CreateDummyFiles = 2;
+        const int Sort = 3;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        // Method to start a command prompt window, executing "operationToExecute"
         public void StartCMD(int operationToExecute)
         {
-
-            int exitCode;
+            // Declares a new process, "process," and sets its working directory to folder "Scripts" in the same dir as the exe.
+            // I.e., if the exe is at C:\1\Filesaur.exe, then the working directory will be set to C:\1\Scripts
             Process process = new Process();
-            string executionDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string ScriptsDir = executionDirectory + "Scripts";
-            process.StartInfo.WorkingDirectory = ScriptsDir;
+            process.StartInfo.WorkingDirectory = AppDomain.CurrentDomain.BaseDirectory + "Scripts";
 
+            // Checks what the operationToExecute is, then:
+            // Sets the filename for the process to start to the respective name (e.g., move.bat for Move) and then fills in necessary arguments with appropriate data from textboxes.
             if (operationToExecute == Move)
             {
                 process.StartInfo.FileName = "move.bat";
@@ -56,12 +51,12 @@ namespace Filesaur
             }
             else
             {
-                exitCode = NoOperationsSelected;
-                MessageBox.Show("Error " + exitCode.ToString() + "No operations selected.");
+                // If something unknown was entered for operationToExecute, display error message and return.
+                MessageBox.Show("Error: StartCMD() was fed unknown operationToExecute");
                 return;
-            }     
-            ThreadStart threadstart = new ThreadStart(() => process.Start());
-            Thread thread = new Thread(threadstart);
+            }
+            // Start new thread for ran process.
+            Thread thread = new Thread(new ThreadStart(() => process.Start()));
             thread.Start();
         }
 
@@ -129,8 +124,6 @@ namespace Filesaur
 
         private void buttonExecute_Click(object sender, RoutedEventArgs e)
         {
-            
-
             if (comboBox1.SelectedIndex == Move)
             {
                 StartCMD(Move);
