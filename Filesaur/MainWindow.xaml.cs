@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 
-
 namespace Filesaur
 {
     /// <summary>
@@ -28,6 +27,7 @@ namespace Filesaur
 
         public void StartCMD(int operationToExecute)
         {
+
             int exitCode;
             Process process = new Process();
             string executionDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -53,18 +53,16 @@ namespace Filesaur
             {
                 process.StartInfo.FileName = "sort.bat";
                 process.StartInfo.Arguments = String.Format("{0} {1} {2}", textbox1.Text, textbox2.Text, textbox3.Text);
-                
             }
             else
             {
                 exitCode = NoOperationsSelected;
                 MessageBox.Show("Error " + exitCode.ToString() + "No operations selected.");
                 return;
-            }
-            process.Start();
-            process.WaitForExit();
-            exitCode = process.ExitCode;
-            process.Close();
+            }     
+            ThreadStart threadstart = new ThreadStart(() => process.Start());
+            Thread thread = new Thread(threadstart);
+            thread.Start();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -131,6 +129,8 @@ namespace Filesaur
 
         private void buttonExecute_Click(object sender, RoutedEventArgs e)
         {
+            
+
             if (comboBox1.SelectedIndex == Move)
             {
                 StartCMD(Move);

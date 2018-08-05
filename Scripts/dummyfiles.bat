@@ -11,4 +11,4 @@ REM Converts size entered by user to bytes.
 set /a sizeOfFilesBytes=%sizeOfFiles% * 1000000
 
 REM For loop that uses fsutil to create the files, appending an incrementing integer at the end of filename.
-for /L %%I in (1,1,%numOfFiles%) do fsutil file createnew "%createLocation%\dummy%%I%filetype%" %sizeOfFilesBytes%
+for /L %%I in (1,1,%numOfFiles%) do fsutil file createnew "%createLocation%dummy%%I%filetype%" %sizeOfFilesBytes%
