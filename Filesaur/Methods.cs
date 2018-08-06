@@ -1,5 +1,5 @@
-﻿using System;
-namespace Namespace1
+﻿
+class Methods
 {
 
 }
