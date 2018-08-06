@@ -1,7 +1,7 @@
 REM Created by Matthew "vmetric" Putnam
 REM Purpose is to automatically sort files into appropriate folders.
 REM Current list of supported filetypes:
-REM JPG, PNG, GIF, TIFF, MP4, AVI, MOV, DOC, DOCX, XLS, XLSX
+REM JPG, PNG, GIF, TIFF, MP4, AVI, MOV, DOC, DOCX, XLS, XLSX, TXT
 
 REM Sets variables to be used by the program. They're fed/filled upon execution.
 REM Intensity key:
@@ -37,6 +37,7 @@ for /R "%sourceDir%" %%i in (*.doc) do move "%%i" "%documentsRoot%" >nul && set 
 for /R "%sourceDir%" %%i in (*.docx) do move "%%i" "%documentsRoot%" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.xls) do move "%%i" "%documentsRoot%" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.xlsx) do move "%%i" "%documentsRoot%" >nul && set /a timesRan = timesRan + 1
+for /R "%sourceDir%" %%i in (*.txt) do move "%%i" "%documentsRoot%" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.mp3) do move "%%i" "%audioRoot%" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.wav) do move "%%i" "%audioRoot%" >nul && set /a timesRan = timesRan + 1
 
@@ -58,6 +59,7 @@ mkdir %documentsRoot%\DOC
 mkdir %documentsRoot%\DOCX
 mkdir %documentsRoot%\XLS
 mkdir %documentsRoot%\XLSX
+mkdir %documentsRoot%\TXT
 
 mkdir %audioRoot%\MP3
 mkdir %audioRoot%\WAV
@@ -74,6 +76,7 @@ for /R "%sourceDir%" %%i in (*.doc) do move "%%i" "%documentsRoot%\DOC" >nul && 
 for /R "%sourceDir%" %%i in (*.docx) do move "%%i" "%documentsRoot%\DOCX" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.xls) do move "%%i" "%documentsRoot%\XLS" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.xlsx) do move "%%i" "%documentsRoot%\XLSX" >nul && set /a timesRan = timesRan + 1
+for /R "%sourceDir%" %%i in (*.txt) do move "%%i" "%documentsRoot%\TXT" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.mp3) do move "%%i" "%audioRoot%\MP3" >nul && set /a timesRan = timesRan + 1
 for /R "%sourceDir%" %%i in (*.wav) do move "%%i" "%audioRoot%\WAV" >nul && set /a timesRan = timesRan + 1
 
