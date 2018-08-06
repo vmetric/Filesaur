@@ -19,6 +19,16 @@ namespace Filesaur
             InitializeComponent();
         }
 
+        // Methods to make changing control visibility a bit more shorthand.
+        public void hideControl(Control control)
+        {
+            control.Visibility = Visibility.Hidden;
+        }
+        public void showControl(Control control)
+        {
+            control.Visibility = Visibility.Visible;
+        }
+
         // Method to start a command prompt window, executing "operationToExecute"
         public void StartCMD(int operationToExecute)
         {
@@ -72,12 +82,12 @@ namespace Filesaur
                 textbox3.Text = "Filetype of files to move";
 
                 // Hides unnecessary fields
-                textbox4.Visibility = Visibility.Hidden;
+                hideControl(textbox4);
 
                 // Makes all necessary fields visible
-                textbox1.Visibility = Visibility.Visible;
-                textbox2.Visibility = Visibility.Visible;
-                textbox3.Visibility = Visibility.Visible;
+                showControl(textbox1);
+                showControl(textbox2);
+                showControl(textbox3);
             }
             else if (comboBox1.SelectedIndex == Delete)
             {
@@ -86,12 +96,12 @@ namespace Filesaur
                 textbox3.Text = "Filetype of files to delete";
 
                 // Hides unnecessary fields
-                textbox2.Visibility = Visibility.Hidden;
-                textbox4.Visibility = Visibility.Hidden;
+                hideControl(textbox2);
+                hideControl(textbox4);
 
                 // Makes all necessary fields visible
-                textbox1.Visibility = Visibility.Visible;
-                textbox3.Visibility = Visibility.Visible;
+                showControl(textbox1);
+                showControl(textbox3);
             }
             else if (comboBox1.SelectedIndex == CreateDummyFiles)
             {
@@ -102,10 +112,10 @@ namespace Filesaur
                 textbox4.Text = "Filetype to create (including dot, e.g., .png)";
 
                 // Makes all necessary fields visible
-                textbox1.Visibility = Visibility.Visible;
-                textbox2.Visibility = Visibility.Visible;
-                textbox3.Visibility = Visibility.Visible;
-                textbox4.Visibility = Visibility.Visible;
+                showControl(textbox1);
+                showControl(textbox2);
+                showControl(textbox3);
+                showControl(textbox4);
             }
             else if (comboBox1.SelectedIndex == Sort)
             {
@@ -115,12 +125,12 @@ namespace Filesaur
                 textbox3.Text = "Intensity (1 for file type, 2 for file extension)";
 
                 // Hides unnecessary fields
-                textbox4.Visibility = Visibility.Hidden;
+                hideControl(textbox4);
 
                 // Makes all necessary fields visible
-                textbox1.Visibility = Visibility.Visible;
-                textbox2.Visibility = Visibility.Visible;
-                textbox3.Visibility = Visibility.Visible;
+                showControl(textbox1);
+                showControl(textbox2);
+                showControl(textbox3);
             }
         }
 
