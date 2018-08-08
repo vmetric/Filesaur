@@ -18,7 +18,6 @@ namespace Filesaur
         {
             InitializeComponent();
         }
-
         // Methods to make changing control visibility a bit more shorthand.
         public void hideControl(Control control)
         {
@@ -32,6 +31,8 @@ namespace Filesaur
         // Method to start a command prompt window, executing "operationToExecute"
         public void StartCMD(int operationToExecute)
         {
+
+
             // Declares a new process, "process," and sets its working directory to folder "Scripts" in the same dir as the exe.
             // I.e., if the exe is at C:\1\Filesaur.exe, then the working directory will be set to C:\1\Scripts
             Process process = new Process();
