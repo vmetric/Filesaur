@@ -5,25 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Filesaur"
         mc:Ignorable="d"
-        Title="MainWindow" Height="225" Width="375" HorizontalAlignment="Center">
+        Title="MainWindow" Height="215" Width="375" HorizontalAlignment="Center">
+    <Grid Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="comboBox1" SelectionChanged="ComboBox_SelectionChanged" Width="134" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-125,0,0">
+        <ComboBox x:Name="comboBox1" SelectionChanged="ComboBox_SelectionChanged" Width="134" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-100,0,0">
             <ComboBoxItem Content="Move"/>
             <ComboBoxItem Cursor="" Content="Delete"/>
             <ComboBoxItem Content="Create Dummy Files"/>
             <ComboBoxItem Content="Sort"/>
         </ComboBox>
-        <TextBlock TextWrapping="Wrap" Text="Select the operation you'd like to execute" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-175,0,0"/>
-        <TextBox x:Name="textbox1" TextWrapping="NoWrap" Text="1" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-25,0,0"/>
-        <TextBox x:Name="textbox2" TextWrapping="NoWrap" Text="2" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,25,0,0"/>
-        <TextBox x:Name="textbox3" TextWrapping="NoWrap" Text="3" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,75,0,0"/>
-        <TextBox x:Name="textbox4" TextWrapping="NoWrap" Text="4" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,125,0,0"/>
-        <Button x:Name="buttonExecute" Content="Execute" Width="60" Click="buttonExecute_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-75,0,0"/>
+        <TextBlock TextWrapping="Wrap" Text="Select the operation you'd like to execute" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-150,0,0"/>
+        <TextBox x:Name="textbox1" TextWrapping="NoWrap" Text="1" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0"/>
+        <TextBox x:Name="textbox2" TextWrapping="NoWrap" Text="2" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0"/>
+        <TextBox x:Name="textbox3" TextWrapping="NoWrap" Text="3" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,100,0,0"/>
+        <TextBox x:Name="textbox4" TextWrapping="NoWrap" Text="4" Width="350" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,150,0,0"/>
+        <Button x:Name="buttonExecute" Content="Execute" Width="60" Click="buttonExecute_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,-50,0,0"/>
 
     </Grid>
 </Window>
