@@ -65,7 +65,7 @@ namespace Filesaur
                 MessageBox.Show("Error: StartCMD() was fed unknown operationToExecute");
                 return;
             }
-            // Start new thread for ran process.
+            // Start new thread for main operation process.
             Thread thread = new Thread(new ThreadStart(() => process.Start()));
             thread.Start();
         }
