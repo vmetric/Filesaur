@@ -14,13 +14,20 @@ namespace Filesaur
         const int CreateDummyFiles = 2;
         const int Sort = 3;
 
-        public MainWindow()
+        //public MainWindow()
+        //{
+        //    InitializeComponent();
+        //}
+        // Methods to make changing control visibility a bit more shorthand.
+        public static void hideControl(Control control)
         {
-            InitializeComponent();
+            control.Visibility = Visibility.Hidden;
         }
+        public static void showControl(Control control)
+        {
+            control.Visibility = Visibility.Visible;
 
-        
-
+        }
         // Method to start a command prompt window, executing "operationToExecute"
         public void StartCMD(int operationToExecute)
         {
