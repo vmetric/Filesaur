@@ -14,9 +14,12 @@ namespace Filesaur
         const int CreateDummyFiles = 2;
         const int Sort = 3;
 
-        public MainWindow()
+        //public MainWindow()
+        //{
+        //    InitializeComponent();
+        //}
+        // Methods to make changing control visibility a bit more shorthand.
         {
-            InitializeComponent();
         }
         // Methods to make changing control visibility a bit more shorthand.
         public void hideControl(Control control)
